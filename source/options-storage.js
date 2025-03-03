@@ -1,11 +1,9 @@
-import OptionsSync from 'webext-options-sync';
+import OptionsSync from "webext-options-sync";
 
 const optionsStorage = new OptionsSync({
 	defaults: {
-		colorRed: 244,
-		colorGreen: 67,
-		colorBlue: 54,
-		text: 'Set a text!',
+		accountsCsv: "",
+		accounts: {},
 	},
 	migrations: [
 		OptionsSync.migrations.removeUnused,

@@ -1,6 +1,6 @@
 {
 	"$schema": "https://json.schemastore.org/chrome-manifest",
-	"name": "Awesome Extension",
+	"name": "AWS Account Mapper Extension",
 	"version": "0.0.0",
 	"description": "An awesome new browser extension",
 	"homepage_url": "https://github.com/fregante/browser-extension-template",
@@ -19,13 +19,19 @@
 		"storage"
 	],
 	"host_permissions": [
-		"https://github.com/*"
+		"https://*.console.aws.amazon.com/*",
+		"https://*.awsapps.com/*"
 	],
 	"content_scripts": [
 		{
-			"matches": [ "https://github.com/fregante/browser-extension-template/*" ],
+			"matches": [ "https://*.console.aws.amazon.com/*" ],
 			"js": [ "content.js" ],
 			"css": [ "content.css" ],
+			"run_at": "document_end"
+		},
+		{
+			"matches": [ "https://*.awsapps.com/*" ],
+			"js": [ "collector.js" ],
 			"run_at": "document_end"
 		}
 	],
