@@ -1,4 +1,4 @@
-# browser-extension-template
+# aws-account-mapper
 
 Extension to show the AWS account alias on the AWS Console page when using IAM Identity Center
 
