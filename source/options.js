@@ -1,21 +1,21 @@
 // eslint-disable-next-line import/no-unassigned-import
-import "webext-base-css";
-import "./options.css";
-import { get } from "./accounts-storage.js";
+import 'webext-base-css';
+import './options.css';
+import {get} from './accounts-storage.js';
 
-const accountsElem = document.getElementById("accounts");
+const accountsElement = document.querySelector('#accounts');
 
 async function init() {
-	const ul = document.createElement("ul");
+	const ul = document.createElement('ul');
 	const accounts = await get();
 	for (const [id, name] of Object.entries(accounts)) {
-		const li = document.createElement("li");
+		const li = document.createElement('li');
 		li.textContent = `${id}: ${name}`;
-		ul.appendChild(li);
+		ul.append(li);
 	}
 
-	accountsElem.innerHTML = "";
-	accountsElem.appendChild(ul);
+	accountsElement.innerHTML = '';
+	accountsElement.append(ul);
 }
 
 init();

@@ -1,5 +1,6 @@
 export async function get() {
-	return (await chrome.storage.local.get(["accounts"])).accounts || {};
+	const result = await chrome.storage.local.get(['accounts']);
+	return result.accounts || {};
 }
 
 export async function merge(accountsToAdd) {
@@ -7,5 +8,6 @@ export async function merge(accountsToAdd) {
 	for (const [id, name] of Object.entries(accountsToAdd)) {
 		accounts[id] = name;
 	}
-	return await chrome.storage.local.set({ accounts });
+
+	return chrome.storage.local.set({accounts});
 }
