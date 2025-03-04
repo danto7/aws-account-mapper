@@ -14,13 +14,16 @@ async function getAccountId() {
 		await new Promise((resolve) => setTimeout(resolve, 200));
 		log("check menu for account id. try:", tries);
 
-		const topMenu = document.getElementById("nav-usernameMenu");
+		const topMenu = document.querySelector(
+			"div[data-testid=account-detail-menu]",
+		);
 		if (!topMenu) continue;
-		accountId = topMenu.innerHTML.match(/Account ID: ([\d-]+)/)[1].replaceAll(
+		accountId = topMenu.innerText.match(/((\d{4}-?){3})/)[1].replaceAll(
 			"-",
 			"",
 		);
 		if (!accountId) continue;
+		console.log("Found accountId", accountId);
 		break;
 	}
 	return accountId;
@@ -30,9 +33,10 @@ async function init() {
 	const accounts = await get();
 
 	const accountId = await getAccountId();
+	if (!accountId) return;
 
 	const notice = document.createElement("div");
-	notice.innerHTML = accounts[accountId];
+	notice.textContent = accounts[accountId];
 	document.body.prepend(notice);
 	notice.id = "text-notice";
 	notice.style.border = "2px solid black";
