@@ -3,16 +3,19 @@ import "webext-base-css";
 import "./options.css";
 import { get } from "./accounts-storage.js";
 
-const debug = document.getElementById("debug");
+const accountsElem = document.getElementById("accounts");
 
 async function init() {
-	let result = "";
+	const ul = document.createElement("ul");
 	const accounts = await get();
 	for (const [id, name] of Object.entries(accounts)) {
-		result += `<li>${id}: ${name}</li>`;
+		const li = document.createElement("li");
+		li.textContent = `${id}: ${name}`;
+		ul.appendChild(li);
 	}
 
-	debug.innerHTML = `<ul>${result}</ul>`;
+	accountsElem.innerHTML = "";
+	accountsElem.appendChild(ul);
 }
 
 init();
