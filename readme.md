@@ -1,5 +1,5 @@
 # aws-account-mapper
-![logo](./media/logo.png)
+![logo](./source/icon.png)
 
 Extension to show the AWS account alias on the AWS Console page when using IAM Identity Center
 
