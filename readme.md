@@ -7,7 +7,7 @@ Extension to show the AWS account alias on the AWS Console page when using IAM I
 
 ## Credits
 
-[Insight icons created by dwicon - Flaticon](https://www.flaticon.com/free-icons/insight)
+Logo: [Insight icons created by dwicon - Flaticon](https://www.flaticon.com/free-icons/insight)
 
 ## License
 MIT
