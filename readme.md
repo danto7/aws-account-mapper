@@ -2,7 +2,7 @@
 
 Extension to show the AWS account alias on the AWS Console page when using IAM Identity Center
 
-![A screenshot that shows the Overlay](./media/screenshot overlay.png)
+![A screenshot that shows the Overlay](./media/screenshot_overlay.png)
 
 ## Credits
 
